@@ -5,10 +5,10 @@
 At the moment there wasn't a Docker image with the Z-way server available. This repo contains the steps and files to build one yourself.
 
 ## Using the image from dockerhub
-
+```
 docker pull wattx/z-way-server-ubuntu:2.2.2
 docker run -it --rm --privileged -p 8083:8083 wattx/z-way-server-ubuntu:2.2.2
-
+```
 ## Building your own image
 
 Instead of versioning the whole server, before building the Docker image the source has to be pulled. If you want to chage the Z-way server version, check the SERVER_IMAGE variable in the Makefile.
