@@ -1,9 +1,8 @@
-NAME = z-way-server
-VERSION = 0.0.1
-IMAGE = $(NAME):$(VERSION)
-
 SERVER_IMAGE = z-way-server-Ubuntu-v2.2.2.tgz
 
+DOCKER_IMAGE_NAME_VERSION = 2.2.2
+DOCKER_IMAGE_NAME_BASE = wattx/z-way-server-ubuntu
+DOCKER_IMAGE_NAME_FULL = $(DOCKER_IMAGE_NAME_BASE):$(DOCKER_IMAGE_NAME_VERSION)
 
 .PHONY: all build run push shell release
 
@@ -15,15 +14,15 @@ get-source:
 	rm $(SERVER_IMAGE)
 
 build:
-	docker build -t $(IMAGE) --rm .
+	docker build --build-arg SERVER_IMAGE=$(SERVER_IMAGE) -t $(DOCKER_IMAGE_NAME_FULL) --rm .
 
 run:
-	docker run -it --rm --privileged -p 8083:8083 -v $(shell pwd):/home/user/app $(IMAGE)
+	docker run -it --rm --privileged -p 8083:8083 -v $(shell pwd):/home/user/app $(DOCKER_IMAGE_NAME_FULL)
 
 shell:
-	docker run -it --rm --privileged -p 8083:8083 -v $(shell pwd):/home/user/app --entrypoint=bash $(IMAGE)
+	docker run -it --rm --privileged -p 8083:8083 -v $(shell pwd):/home/user/app --entrypoint=bash $(DOCKER_IMAGE_NAME_FULL)
 
 push:
-	docker push $(IMAGE)
+	docker push $(DOCKER_IMAGE_NAME_FULL)
 
 release: build push
