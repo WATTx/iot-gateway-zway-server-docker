@@ -23,7 +23,7 @@ Instead of versioning the whole server, before building the Docker image the sou
 Persistency of the Z-way configuration is maintained by using a named volume 'config-zway'. In case you want to restart the configuration at some point an start over anew, delete the volume:
 
 ```
-rm $(docker ps -q -f status=exited)
+docker rm $(docker ps -q -f status=exited)
 docker volume rm config-zway
 ```
 
