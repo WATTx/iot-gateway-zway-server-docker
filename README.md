@@ -4,6 +4,9 @@
 
 At the moment there wasn't a Docker image with the Z-way server available. This repo contains the steps and files to build one yourself.
 
+## Requirements
+Docker >= 1.9
+
 ## Using the image from dockerhub
 ```
 docker pull wattx/z-way-server-ubuntu:2.2.2
@@ -20,7 +23,7 @@ Instead of versioning the whole server, before building the Docker image the sou
 
 ## Persistency mechanism
 
-Persistency of the Z-way configuration is maintained by using a named volume 'config-zway'. In case you want to restart the configuration at some point an start over anew, delete the volume:
+Persistency of the Z-way configuration is maintained by using a Docker named volume 'config-zway'. In case you want to restart the configuration at some point an start over anew, delete the volume:
 
 ```
 docker rm $(docker ps -q -f status=exited)
