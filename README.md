@@ -16,6 +16,8 @@ Docker >= 1.9
 docker pull wattx/z-way-server-ubuntu:2.2.2
 docker run -it --privileged -v config-zway:/home/user/app -p 8083:8083 wattx/z-way-server-ubuntu:2.2.2
 ```
+Open browser on the host. URL: http://localhost:8083
+
 ## Building your own image
 
 Instead of versioning the whole server, before building the Docker image the source has to be pulled. If you want to chage the Z-way server version, check the SERVER_IMAGE variable in the Makefile.
