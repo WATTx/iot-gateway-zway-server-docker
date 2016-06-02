@@ -2,10 +2,14 @@
 
 ## Overview
 
-At the moment there wasn't a Docker image with the Z-way server available. This repo contains the steps and files to build one yourself.
+At the moment there wasn't a Docker image with the Z-way server available. This repo contains the steps and files to build one yourself. There are two approaches how to get this running:
+
+* Building your own image. In which case you can modify what you wan't but need to go through multiple steps and it takes longer
+* Using the image from dockerhub. In which case the image was prebuilt with the Dockerfile from the repository and you can pull it and run it directly.
 
 ## Requirements
 Docker >= 1.9
+
 
 ## Using the image from dockerhub
 ```
